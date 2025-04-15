@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Safety Monitor - SafeEats</title>
+    <link rel="stylesheet" href="monitor.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="home.html">SafeEats</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="vendorReg.html">Business Reg</a></li>
+                <li><a href="foodSafetyMonitor.html">Food Monitor</a></li>
+                <li><a href="about.html">About</a></li>
+                
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Food Safety System</h1>
+            <p>Empowering communities with tools to ensure food safety and quality.</p>
+        </div>
+    </header>
+    <main>
+        <section id="QR-code">
+            <h2><i class="fa-solid fa-qrcode"></i> QR Code Scanner</h2>
+            <hr>
+            <p>Scan QR codes on food packages to verify authenticity and track food sources.</p>
+            <button id="start-scanner" class="btn">Start Scanner</button>
+            <div id="qr-reader"></div>
+            <div id="qr-reader-results"></div>
+        </section>
+        <section id="food-safety-check">
+            <h2><i class="fa-solid fa-person-falling-burst"></i> Report an Incident</h2>
+            <form id="food-safety-form" action="https://api.web3forms.com/submit" method="post">
+                <input type="hidden" name="access_key" value="243a6d91-cd4a-4f8a-9c55-bf8e68f742d1">
+                <label for="name">School Name:</label>
+                <input type="text" id="name" name="School" placeholder="Enter school name" required>
+                <label for="incident">Incident Type:</label>
+                <select id="incident" name="incident Type" required>
+                    <option value="Food Quality Issue">Food Quality Issue</option>
+                    <option value="Hygiene Concern">Hygiene Concern</option>
+                    <option value="Safety Violation">Safety Violation</option>
+                    <option value="other">Other</option>
+                </select>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" placeholder="Describe the incident" required></textarea>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+                <label for="contact">Contact Information (optional):</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter your contact info">
+                <button id="check-food-safety" class="btn">Submit Report</button>
+            </form>
+            <div id="food-safety-results"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 SafeEats. All rights reserved.</p>
+    </footer>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const qrReader = new Html5Qrcode("qr-reader");
+    
+            document.getElementById("start-scanner").addEventListener("click", () => {
+                qrReader.start(
+                    { facingMode: "environment" },
+                    { fps: 10, qrbox: { width: 250, height: 250 } },
+                    (decodedText) => {
+                        // Redirect to the scanned URL
+                        window.location.href = decodedText;
+                    },
+                    (errorMessage) => {
+                        console.warn(`QR Code Scan Error: ${errorMessage}`);
+                    }
+                ).catch(err => {
+                    console.error(`Unable to start QR Code scanner: ${err}`);
+                    document.getElementById("qr-reader-results").innerText = "Error: Unable to start QR Code scanner.";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

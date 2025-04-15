@@ -1,0 +1,184 @@
+/* General Styles */
+:root { 
+    --background-color: #000000; /* Background color for the entire website, including individual sections */
+    --default-color: #fafafa; /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #18d26e; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #1a1a1a; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #000000; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+      --bg-color: #080808;
+      --second-bg-color: #131313;
+      --text-color: white;
+      --main-color: #00ffee;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(69, 179, 69);
+    padding: 0.5rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:  black;
+    text-decoration: none;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+nav .nav-links li {
+    display: inline;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav .nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)), url('hero-image.jpg') no-repeat center center/cover;
+    color: black;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* QR Code Section */
+#QR-code {
+    text-align: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#QR-code h2 {
+    color: black;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#QR-code p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+#qr-reader {
+    margin: 1rem auto;
+    border: 4px solid #011301;
+    border-radius: 8px;
+    padding: 10px;
+    width: 400px;
+}
+
+#qr-reader-results {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Incident Report Section */
+#food-safety-check {
+    text-align: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#food-safety-check h2 {
+    color: black;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#food-safety-check form {
+    max-width: 600px;
+    margin: auto;
+    text-align: left;
+}
+
+#food-safety-check label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+#food-safety-check input,
+#food-safety-check select,
+#food-safety-check textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#food-safety-check textarea {
+    resize: none;
+}
+
+.btn {
+    background-color: #0adb11;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--main-color);
+    color: black;
+}
+
+/* Footer */
+footer {
+    background-color: var(--surface-color);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
